@@ -70,7 +70,8 @@ public class IBANapp {
 							boolean checkIbanResult = ibanObj.checkIBAN();
 							if(checkIbanResult == false) {
 								ibanObj.makeIBAN();
-								String iban = ibanObj.getIBAN();
+//								String iban = ibanObj.getIBAN();
+								String iban = ibanObj.getFixedIban();
 								System.out.println("The corrected IBAN is: " + iban + ". Would you like to store it? Type y or n and press enter key:");
 								
 								/**

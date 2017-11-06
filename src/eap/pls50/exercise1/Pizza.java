@@ -8,7 +8,7 @@ import java.util.Scanner;
  * User has to provide different inputs from the keyboard regarding the number of the persons that will eat pizza, the diameter and price of personal and family pizza.
  * 
  * PLS50 Assignment 1 - Exercise 1
- * @version 0.1
+ * @version 0.2
  * @author Aris Angelis
  *
  */
@@ -70,22 +70,14 @@ public class Pizza {
 		double rateFamily = (Math.ceil(0.5*persons)*familyPrice)/totalFamilyPizzaEaten;
 		
 		/**
-		 * When the division remainder or the persons given by two is an even number, all the ordered pizza will be eaten, either personal or family ones
-		 * When the division remainder or the persons given by two is an odd number, if the order is for Family pizza, then not all the family pizza will be eaten (half a family pizza will remain).
-		 * When the rate for personal and family pizza are equal, a message will be printed, reading that user may order any kind of pizza since the rates are equal.
+		 * Compare the two rates and display the corresponding message for the lower rate and when the rates are equal
 		 * An extra check was added at the end where the program checks the inputs and in case any of them are negative or zero an informative message is displayed.
 		 */
 		if(rateAtomic<rateFamily) {			
 					System.out.println("Please order " + persons + " Personal pizzas. The Personal Pizza Price/Surface rate is " + rateAtomic + " against the Family rate which is " + rateFamily );
-			}else if(rateAtomic>rateFamily){
+		}else if(rateAtomic>rateFamily){
 					System.out.println("Please order " + Math.ceil(0.5*persons) + " family pizzas. The Family Pizza Price/Surface rate is " + rateFamily + " against the Personal rate which is " + rateAtomic );
-				}
-//		if(rateAtomic>rateFamily) {
-//				System.out.println("Please order " + Math.ceil(0.5*persons) + " family pizzas. The Family Pizza Price/Surface rate is " + rateFamily + " against the Personal rate which is " + rateAtomic );
-//					}else {
-//						System.out.println("Please order " + persons + " personal pizzas. The Personal Pizza Price/Surface rate is " + rateAtomic + " against the Family rate which is " + rateFamily );
-//					}
-		if(rateAtomic==rateFamily) {
+		}else if(rateAtomic==rateFamily) {
 					System.out.println("Please order either " + persons + " personal pizzas or " + Math.ceil(0.5*persons) + " family pizzas. The Family and Personal Price/Surface rate is equal");
 		}else if(persons<=0 || atomicDiameter<=0.0 || familyDiameter<=0.0 || atomicPrice<=0.0 || familyPrice<=0.0) {
 					System.out.println("At least one of the provided values is invalid! Please run the program again and try valid values! ");
